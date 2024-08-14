@@ -19,7 +19,7 @@ h2{
 }
 
 a {
-    color: black;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -64,26 +64,26 @@ footer p{
     margin: 0;
 }
 
-section.mainStory h2, article h2 {
+section.mainstory h2, article h2 {
     margin-left: 0.15em;
     font-size: 3em;
 }
 
-section.secondaryStory h2 {
+section.secondarystory h2 {
     font-size: 1.7em;
     margin-left: 0.25em;
 }   
 
-section.tertiaryStory{
+section.tertiarystory{
     margin: 0 0.5em;
     border-top: .1em #557799 solid;
 }
 
-section.tertiaryStory h2, aside h2{
+section.tertiarystory h2, aside h2{
     font-size: 1.2em;
 }
 
-section.tertiaryStory p, aside p{
+section.tertiarystory p, aside p{
     margin-left: 0;
 }
 
@@ -105,11 +105,11 @@ aside{
         display: inline-block;
     }
 
-    h1, nav ul, p, section.mainStory h2, article h2, section.secondaryStory h2, figcaption{
+    h1, nav ul, p, section.mainstory h2, article h2, section.secondarystory h2, figcaption{
         margin-left: 0;
     }
 
-    section.tertiaryStory{
+    section.tertiarystory{
         margin: 0;
     }
 } 
