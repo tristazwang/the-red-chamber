@@ -1,0 +1,134 @@
+/*CSS document*/
+
+html, body, div, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;}
+
+div.container {
+    max-width:40em;
+    margin: auto;
+}
+
+h1{ 
+    width: 6em;
+    margin: 1em 0;
+}
+
+h2{
+    color: #557799;
+    font-weight: bold;
+}
+
+nav ul li{
+    list-style-type: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 0.2em 0.5em 0.2em 0;
+}
+
+nav ul li a{
+    color: #557799;
+}
+
+nav ul{
+    margin-bottom: 1em;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* space under all sections. used padding instead of margin for the aside blue background in mainstory*/
+section {
+    padding-bottom: 1em;
+    }
+
+img {
+    width: 100%;
+    display: block;
+}
+
+p { 
+    font-family: sans-serif;
+    margin-bottom: 1em;
+}
+
+footer{
+    background-color: #557799;
+    color: white;
+    height: 3rem;
+}
+
+footer p{
+    padding-top: 1rem; /*ASK BRUNO -- WHITESPACE UNDER FOOTER*/
+}
+
+/* change nav menu for wider screens */
+@media screen and (min-width: 35em) {
+    nav ul li {
+        display: inline-block;
+    }
+} 
+
+@media screen and (max-width: 35em) { /*ASK BRUNO -- IS THIS THE MOST EFFICIENT WAY??*/
+    section.mainStory h2, article h2 {
+        margin-left: 0.15em;
+    }
+    
+    section.secondaryStory h2 {
+        margin-left: 0.25em;
+    }   
+
+    section.tertiaryStory{
+        margin: 1em 0.5em;
+    }
+
+    section.tertiaryStory p{
+        margin: 0 0 1em;
+    }
+
+    p{
+        margin: 0 0.5em 1em;
+    }
+
+    figcaption{
+        margin: 0 0.5em;
+    }
+
+    h1, nav ul{
+        margin-left: 0.5em;
+    }
+
+}
+
+section.mainStory h2, article h2 {
+    font-size: 3em;
+}
+
+section.secondaryStory h2 {
+    font-size: 1.7em;
+}   
+
+section.tertiaryStory{
+    border-top: .1em #557799 solid;
+    padding-top: 0.2em; /*space btwn border and heading*/
+}
+
+section.tertiaryStory h2, aside h2{
+    font-size: 1.2em;
+}
+
+article p{
+    margin-top: 1em;
+}
+
+figcaption {
+    font-family: sans-serif;
+    font-style: italic;
+    color: #555555;
+    margin-bottom: 1.5em; 
+}
+
+aside{
+    background-color: #cbcfff;
+    padding: 0.5em;
+}
