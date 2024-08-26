@@ -2,20 +2,26 @@
 
 html, body, div, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;}
 
+body{
+    background-color: #f7eaa8;
+}
+
 div.container, div.home-container {
     max-width:40em;
     margin: auto;
 }
 
 h1{ 
-    width: 6em;
+    width: 20em;
     margin: 1em 0.5em;
 }
 
 h2{
-    color: #557799;
-    font-weight: bold;
+    font-family: area-normal, sans-serif;
+    font-weight: 700;
+    font-style: normal;
     margin-top: 0.25em;
+    color: #0e5a3f;
 }
 
 a {
@@ -29,13 +35,14 @@ nav ul{
 
 nav ul li{
     list-style-type: none;
-    font-family: sans-serif;
-    font-weight: bold;
     margin: 0.2em 0.5em 0.2em 0;
+    font-family: area-normal, sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 nav ul li a{
-    color: #557799;
+    color: #A8250B;
 }
 
 /*used padding instead of margin for the aside blue background in mainstory*/
@@ -49,54 +56,74 @@ img {
 }
 
 p { 
-    font-family: sans-serif;
     margin: 0.1em 0.5em 1em;
+    line-height: 1.2em;
+    font-family: plantin, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1em;
+    color: #1b0c07;
 }
 
 footer{
-    background-color: #557799;
-    color: white;
+    background-color: #A8250B;
     height: 2rem;
     padding: 1em 0 0 0.5em;
 }
 
 footer p{
     margin: 0;
+    color: #FFFFFF;
 }
 
 section.mainstory h2, article h2 {
-    margin-left: 0.15em;
-    font-size: 3em;
+    font-size: 2.2em;
+    line-height: 1.2em;
+    margin-top: 0.3em;
+    margin: 0.3em 0 0 0.15em;
 }
 
 section.secondarystory h2 {
-    font-size: 1.7em;
-    margin-left: 0.25em;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    margin: 0.4em 0 0 0.25em;
 }   
 
 section.tertiarystory{
     margin: 0 0.5em;
-    border-top: 2px #557799 solid;
+    border-top: 2px #A8250B solid;
 }
 
 section.tertiarystory h2, aside h2{
     font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: 0.5em;
 }
 
 section.tertiarystory p, aside p{
     margin-left: 0;
 }
 
-figcaption {
-    font-family: sans-serif;
-    font-style: italic;
-    color: #555555;
-    margin: 0.5em 0.5em 1.5em;
+div.container aside h2, div.container aside p{
+    color: #FFFFFF;
 }
 
-aside{
-    background-color: #cbcfff;
+figcaption {
+    font-family: plantin, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.1em;
+    margin: 0.5em 0.5em 1.5em;
+    color: #1b0c07;
+}
+
+div.container aside{
+    background-color: #0e5a3f;
     padding: 0.5em;
+}
+
+span.italic{
+    font-style: italic;
 }
 
 /* change nav menu and get rid of extra whitespace for wider screens */
@@ -141,11 +168,6 @@ aside{
         grid-gap: 1em;
     }
 
-    div.home-container aside{
-        background: none;
-        padding-top: 0;
-    }
-    
     section.mainstory{
         grid-column: 2/4;
         grid-row: 1/3;
