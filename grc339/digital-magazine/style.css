@@ -3,10 +3,10 @@
 html, body, div, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;}
 
 body{
-    background-color: #f7eaa8;
+    background-color: #fff8d2;
 }
 
-div.container, div.home-container {
+div.newsletter-container, div.gallery-container, div.mainstory-container, div.home-container {
     max-width:40em;
     margin: auto;
 }
@@ -16,12 +16,15 @@ h1{
     margin: 1em 0.5em;
 }
 
-h2{
-    font-family: area-normal, sans-serif;
-    font-weight: 700;
+h2, form p{
+    font-family: plantin, sans-serif;
+    font-weight: 400;
     font-style: normal;
-    margin-top: 0.25em;
     color: #0e5a3f;
+}
+
+h2{
+    margin-top: 0.25em;
 }
 
 a {
@@ -29,23 +32,32 @@ a {
     text-decoration: none;
 }
 
-nav ul{
+nav.menu ul{
     margin: 0 0 1em 0.5em;
 }
 
-nav ul li{
-    list-style-type: none;
-    margin: 0.2em 0.5em 0.2em 0;
+nav.menu ul li, button{
     font-family: area-normal, sans-serif;
     font-weight: 700;
     font-style: normal;
 }
 
-nav ul li a{
+nav.menu ul li{
+    margin: 0.2em 0.5em 0.5em 0;
+}
+
+nav.menu ul, div.newsletter-container form ul{
+    list-style-type: none;
+}
+
+nav.menu ul li a{
     color: #A8250B;
 }
 
-/*used padding instead of margin for the aside blue background in mainstory*/
+nav.menu ul li a:hover{
+    color: #6b1301;
+}
+
 section {
     padding-bottom: 1em;
 }
@@ -55,14 +67,21 @@ img {
     display: block;
 }
 
-p { 
-    margin: 0.1em 0.5em 1em;
-    line-height: 1.2em;
-    font-family: plantin, sans-serif;
+p, figcaption, form label, form input{ 
+    font-family: area-normal, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.1em;
+    line-height: 1.4em;
     color: #1b0c07;
+}
+
+p{
+    margin: 0.1em 0.5em 1em;
+}
+
+figcaption {
+    font-style: italic;
+    margin: 0.5em 0.5em 1.5em;
 }
 
 footer{
@@ -76,16 +95,22 @@ footer p{
     color: #FFFFFF;
 }
 
-section.mainstory h2, article h2 {
-    font-size: 2.2em;
-    line-height: 1.2em;
-    margin-top: 0.3em;
+section.mainstory h2, article h2, div.gallery-container h2, div.newsletter-container h2{
+    font-size: 2em;
+    line-height: 1.1em;
+}
+
+section.mainstory h2, article h2{
     margin: 0.3em 0 0 0.15em;
+}
+
+div.gallery-container h2, div.newsletter-container h2 {
+    margin: 0.5em 0 0.5em 0.15em;
 }
 
 section.secondarystory h2 {
     font-size: 1.6em;
-    line-height: 1.2em;
+    line-height: 1.1em;
     margin: 0.4em 0 0 0.25em;
 }   
 
@@ -95,7 +120,7 @@ section.tertiarystory{
 }
 
 section.tertiarystory h2, aside h2{
-    font-size: 1.2em;
+    font-size: 1.3em;
     line-height: 1.2em;
     margin-top: 0.5em;
 }
@@ -104,40 +129,124 @@ section.tertiarystory p, aside p{
     margin-left: 0;
 }
 
-div.container aside h2, div.container aside p{
+div.mainstory-container aside{
+    background-color: #0e5a3f;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+div.mainstory-container aside h2, div.mainstory-container aside p{
     color: #FFFFFF;
 }
 
-figcaption {
-    font-family: plantin, sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.1em;
-    margin: 0.5em 0.5em 1.5em;
-    color: #1b0c07;
+main.gallery {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: calc(157% + 4em); /*problem - book covers aren't the same dimension*/
 }
 
-div.container aside{
-    background-color: #0e5a3f;
+main.gallery figure{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+input:nth-of-type(1):checked ~ main.gallery figure:nth-of-type(1),
+input:nth-of-type(2):checked ~ main.gallery figure:nth-of-type(2),
+input:nth-of-type(3):checked ~ main.gallery figure:nth-of-type(3),
+input:nth-of-type(4):checked ~ main.gallery figure:nth-of-type(4),
+input:nth-of-type(5):checked ~ main.gallery figure:nth-of-type(5),
+input:nth-of-type(6):checked ~ main.gallery figure:nth-of-type(6),
+input:nth-of-type(7):checked ~ main.gallery figure:nth-of-type(7),
+input:nth-of-type(8):checked ~ main.gallery figure:nth-of-type(8),
+input:nth-of-type(9):checked ~ main.gallery figure:nth-of-type(9),
+input:nth-of-type(10):checked ~ main.gallery figure:nth-of-type(10){
+    left: 0;
+    opacity: 1;
+}
+
+nav.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+label img{
+    height: 90%;
+}
+
+div.gallery-container input{
+    display: none;
+}
+
+form{
+    margin-left: 0.5em;
+}
+
+form p{
+    font-size: 1.3em;
+    line-height: 1.2em;
+    margin: 0.5em 0 0.2em 0;
+}
+
+section.personal-info ul, section.newsletter-frequency ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.personal-info ul li{
+	display: flex;
+	flex-wrap: wrap;
+    margin: 0 2em 0.5em 0;
+}
+
+section.personal-info ul li label{
+    width: 3.5em;
+}
+
+section.newsletter-frequency ul li{
+    margin-right: 0.5em;
+}
+
+section.sub-button{
+    margin: 1em 0;
+}
+
+form input[type="checkbox"], form input[type="radio"]{
+    accent-color:#A8250B;
+}
+
+button{
+    background-color:#0e5a3f;
+    font-size: 1.1em;
     padding: 0.5em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
 }
 
-span.italic{
-    font-style: italic;
+button:hover{
+    background-color: #073424;
 }
 
-/* change nav menu and get rid of extra whitespace for wider screens */
-@media screen and (min-width: 35em) {
-    nav ul li {
+@media screen and (min-width: 40em) {
+    nav.menu ul li {
         display: inline-block;
     }
 
-    h1, nav ul, p, section.mainstory h2, article h2, section.secondarystory h2, figcaption{
+    h1, nav.menu ul, p, section.mainstory h2, article h2, section.secondarystory h2, div.gallery-container h2, div.newsletter-container h2, figcaption, form{
         margin-left: 0;
     }
 
     section.tertiarystory{
         margin: 0;
+    }
+
+    nav.gallery{
+        grid-template-columns: repeat(10, 1fr);
     }
 }
 
@@ -150,12 +259,15 @@ span.italic{
         grid-gap: 1em;
     }
 
-    div.container{
-        max-width: 60em;
+    div.mainstory-container{
         padding: 0 1em;
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-gap: 1em;
+    }
+
+    div.mainstory-container, div.gallery-container, div.newsletter-container{
+        max-width: 60em;
     }
 
     header, footer{
