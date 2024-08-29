@@ -79,6 +79,10 @@ p{
     margin: 0.1em 0.5em 1em;
 }
 
+i{
+    font-style: italic;
+}
+
 figcaption {
     font-style: italic;
     margin: 0.5em 0.5em 1.5em;
@@ -142,7 +146,7 @@ div.mainstory-container aside h2, div.mainstory-container aside p{
 main.gallery {
     position: relative;
     overflow: hidden;
-    padding-bottom: calc(157% + 4em); /*problem - book covers aren't the same dimension*/
+    padding-bottom: calc(157% + 4em); 
 }
 
 main.gallery figure{
@@ -232,7 +236,7 @@ button:hover{
     background-color: #073424;
 }
 
-@media screen and (min-width: 40em) {
+@media only screen and (min-width: 60em){
     nav.menu ul li {
         display: inline-block;
     }
@@ -245,12 +249,32 @@ button:hover{
         margin: 0;
     }
 
-    nav.gallery{
-        grid-template-columns: repeat(10, 1fr);
+    div.gallery-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.5em;
     }
-}
 
-@media only screen and (min-width: 60em){
+    div.gallery-container header, div.gallery-container h2, div.gallery-container footer{
+        grid-column: 1/3;
+    }
+
+    div.gallery-container h2{
+        margin: 0;
+    }
+
+    main.gallery{
+        grid-row: 4/6;
+    }
+
+    nav.gallery{
+        grid-row: 4/5;
+    }
+
+    div.gallery-container footer{
+        grid-row: 6/7;
+    }
+    
     div.home-container{
         max-width: 80em;
         padding: 0 1em;
